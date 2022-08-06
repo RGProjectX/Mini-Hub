@@ -25,7 +25,7 @@ const Hero = () => {
         <InfoCard number='10' name='Colleges'/>
     </Flex>
     </Stack>
-    <Image m={['2','2','6','6']} width='300px' height='200px' src={'src/assets/share.svg'}></Image>
+    <Image m={['2','2','6','6']} width='300px' height='200px' src={'https://raw.githubusercontent.com/RGProjectX/MiniHub/master/src/assets/share.svg'}></Image>
     </Stack>
     <Box mt='5' align='center'>
     <Text align='center'>Start sharing your knowledge with the world now. </Text>
