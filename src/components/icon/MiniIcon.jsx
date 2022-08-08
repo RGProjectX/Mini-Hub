@@ -16,7 +16,7 @@ const MiniIcon = () => {
     
   return (
     <Box className='container' p='1.5' w='40px' h='40px' 
-     bgColor={useColorModeValue('gray.800','gray.600')} borderRadius='md'>
+     bgColor={useColorModeValue('green.500','green.300')} borderRadius='md'>
     <motion.svg 
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 100 100"

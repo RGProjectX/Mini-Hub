@@ -29,7 +29,7 @@ import {
           rounded={'lg'}
           p={6}
           textAlign={'center'}>
-          <Heading fontSize={'2xl'} fontFamily={'body'}>
+          <Heading color='green.500' fontSize={'2xl'} fontFamily={'body'}>
             {props.name}
           </Heading>
           <Text fontWeight={600} color={'gray.500'} mb={4}>
@@ -47,6 +47,7 @@ import {
                 return <Badge
                 px={2}
                 py={1}
+                variant='outline' colorScheme='green'
                 bg={useColorModeValue('gray.50', 'gray.800')}
                 fontWeight={'400'}>
                 {lang}
@@ -60,16 +61,16 @@ import {
               flex={1}
               fontSize={'lg'}
               rounded={'full'}
-              bg={'blue.400'}
+              bg={'green.400'}
               color={'white'}
             //   boxShadow={
             //     '0px 1px 20px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
             //   }
               _hover={{
-                bg: 'blue.500',
+                bg: 'green.500',
               }}
               _focus={{
-                bg: 'blue.500',
+                bg: 'green.500',
               }}>
               Check Out
             </Button>

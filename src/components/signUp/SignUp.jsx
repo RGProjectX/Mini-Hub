@@ -3,6 +3,7 @@ import {
     Box,
     FormControl,
     FormLabel,
+    FormHelperText,
     Input,
     InputGroup,
     HStack,
@@ -21,13 +22,13 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
     const [showPassword, setShowPassword] = useState(false);
   
     return (
-      <Flex
+      <Flex mt='10'
         align={'center'}
         justify={'center'}
         bg={useColorModeValue('gray.50', 'gray.800')}>
         <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
           <Stack align={'center'}>
-            <Heading fontSize={'4xl'} textAlign={'center'}>
+            <Heading fontSize={'4xl'} textAlign={'center'} color={useColorModeValue('green.500','green.300')}>
               Sign up
             </Heading>
             <Text fontSize={'lg'} color={'gray.600'}>
@@ -56,11 +57,12 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
               </HStack>
               <FormControl id="email" isRequired>
                 <FormLabel>Email Address</FormLabel>
-                <Input type="email" />
+                <Input type="email"  />
+                <FormHelperText>We'll never share your email.</FormHelperText>
               </FormControl>
               <FormControl id="college" isRequired>
                 <FormLabel>College Name</FormLabel>
-                <Input type="email" />
+                <Input type="text" />
               </FormControl>
               <FormControl id="password" isRequired>
                 <FormLabel>Password</FormLabel>
@@ -81,10 +83,10 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
                 <Button
                   loadingText="Submitting"
                   size="lg"
-                  bg={'blue.400'}
+                  bg={'green.400'}
                   color={'white'}
                   _hover={{
-                    bg: 'blue.500',
+                    bg: 'green.500',
                   }}>
                   Sign up
                 </Button>

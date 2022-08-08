@@ -10,7 +10,7 @@ const Hero = () => {
     <Stack direction={['column','column','row','row']}>
     <Stack align='center' >
     <MiniIcon/>  
-    <Heading bgGradient='linear(to-l, #7928CA, #FF0080)' bgClip="text">MiniHub</Heading>
+    <Heading color='green.400'>MiniHub</Heading>
     <HStack>
         <Text color={useColorModeValue('gray.600','gray.400')}>A place developed to</Text>
         <TypeAnimation
@@ -31,7 +31,7 @@ const Hero = () => {
     </Stack>
     <Box mt='5' align='center'>
     <Text align='center'>Start sharing your knowledge with the world now. </Text>
-    <ButtonGroup mt='5' variant='outline' spacing='10'>
+    <ButtonGroup mt='5' variant='outline' spacing='10' colorScheme='green'>
     <Button>Sign In</Button>
     <Button>Sign Up</Button>
     </ButtonGroup>

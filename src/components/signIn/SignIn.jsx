@@ -16,15 +16,15 @@ import {
 export default function SignIn() {
     return (
       
-      <Flex
+      <Flex mt='20'
         align={'center'}
         justify={'center'}
         bg={useColorModeValue('gray.50', 'gray.800')}>
         <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
           <Stack align={'center'}>
-            <Heading fontSize={['2xl','2xl','3xl','4xl']}>Sign in to your account</Heading>
+            <Heading fontSize={['2xl','2xl','3xl','4xl']} color={useColorModeValue('green.600','green.400')}>Sign in to your account</Heading>
             <Text fontSize={'lg'} color={'gray.600'}>
-              to enjoy all of our cool <Link color={'blue.400'}>features</Link> ✌️
+              to enjoy free access to various projects.
             </Text>
           </Stack>
           <Box
@@ -32,9 +32,9 @@ export default function SignIn() {
             bg={useColorModeValue('white', 'gray.700')}
             boxShadow={'lg'}
             p={8}>
-            <Stack spacing={4}>
+            <Stack spacing={4} >
               <FormControl id="email">
-                <FormLabel>Email address</FormLabel>
+                <FormLabel>Email</FormLabel>
                 <Input type="email" ></Input>
               </FormControl>
               <FormControl id="password">
@@ -50,10 +50,10 @@ export default function SignIn() {
                   <Link color={'blue.400'}>Forgot password?</Link>
                 </Stack>
                 <Button
-                  bg={'blue.400'}
+                  bg={'green.400'}
                   color={'white'}
                   _hover={{
-                    bg: 'blue.500',
+                    bg: 'green.500',
                   }}>
                   Sign in
                 </Button>
