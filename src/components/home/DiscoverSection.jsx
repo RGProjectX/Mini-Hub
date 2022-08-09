@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Heading, useColorModeValue, SimpleGrid, Stack, Text } from '@chakra-ui/react'
-import Card from '../card/Card'
+import Card from '../projectCard/Card'
 
 const DiscoverSection = () => {
     const projectArr = [{

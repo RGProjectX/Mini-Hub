@@ -1,6 +1,5 @@
-import { Box, Flex, Heading, useColorModeValue, SimpleGrid, Stack, Text } from '@chakra-ui/react'
+import { Flex, Stack} from '@chakra-ui/react'
 import React from 'react'
-import Card from '../card/Card'
 import DiscoverSection from './DiscoverSection'
 import Hero from './Hero'
 
