@@ -2,8 +2,8 @@ import { Text, HStack, Heading, Box, Flex,Image, useColorModeValue, Stack, Butto
 import React from 'react'
 import TypeAnimation from 'react-type-animation';
 import MiniIcon from '../icon/MiniIcon';
-import SignInModal from '../navbar/SignInModal';
-import SignUpModal from '../navbar/SignUpModal';
+import SignInModal from '../modals/SignInModal';
+import SignUpModal from '../modals/SignUpModal';
 import InfoCard from './InfoCard';
 const Hero = () => {
   return (
