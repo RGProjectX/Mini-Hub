@@ -29,7 +29,7 @@ import {
           rounded={'lg'}
           p={6}
           textAlign={'center'}>
-          <Heading color='green.500' fontSize={'2xl'} fontFamily={'body'}>
+          <Heading color={useColorModeValue('green.500','teal.200')} fontSize={'2xl'} fontFamily={'body'}>
             {props.name}
           </Heading>
           <Text fontWeight={600} color={'gray.500'} mb={4}>
@@ -47,8 +47,8 @@ import {
                 return <Badge
                 px={2}
                 py={1}
-                variant='outline' colorScheme='green'
-                bg={useColorModeValue('gray.50', 'gray.800')}
+                variant='outline' 
+                colorScheme={useColorModeValue('green','teal')}
                 fontWeight={'400'}>
                 {lang}
               </Badge>
@@ -61,17 +61,8 @@ import {
               flex={1}
               fontSize={'lg'}
               rounded={'full'}
-              bg={'green.400'}
-              color={'white'}
-            //   boxShadow={
-            //     '0px 1px 20px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
-            //   }
-              _hover={{
-                bg: 'green.500',
-              }}
-              _focus={{
-                bg: 'green.500',
-              }}>
+              colorScheme={useColorModeValue('green','teal')}
+              >
               Check Out
             </Button>
           </Stack>

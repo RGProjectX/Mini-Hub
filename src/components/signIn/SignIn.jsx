@@ -16,13 +16,14 @@ import {
 export default function SignIn() {
     return (
       
-      <Flex mt='20'
+      <Flex mt='10'
+      h='100vh'
         align={'center'}
         justify={'center'}
         bg={useColorModeValue('gray.50', 'gray.800')}>
         <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
           <Stack align={'center'}>
-            <Heading fontSize={['2xl','2xl','3xl','4xl']} color={useColorModeValue('green.600','green.400')}>Sign in to your account</Heading>
+            <Heading fontSize={['2xl','2xl','3xl','4xl']} color={useColorModeValue('green.500','teal.200')}>Sign in to your account</Heading>
             <Text fontSize={'lg'} color={'gray.600'}>
               to enjoy free access to various projects.
             </Text>
@@ -50,11 +51,8 @@ export default function SignIn() {
                   <Link color={'blue.400'}>Forgot password?</Link>
                 </Stack>
                 <Button
-                  bg={'green.400'}
-                  color={'white'}
-                  _hover={{
-                    bg: 'green.500',
-                  }}>
+                  colorScheme={useColorModeValue('green','teal')}
+                  >
                   Sign in
                 </Button>
               </Stack>

@@ -31,10 +31,10 @@ export default function Nav() {
             <Tooltip hasArrow placement='bottom' label='Upload Project'> 
             <Button
               variant={'solid'}
-              size={'sm'} colorScheme='green'><AddIcon/></Button>
+              size={'sm'} colorScheme={useColorModeValue('green','teal')}><AddIcon/></Button>
               </Tooltip> 
               <Button onClick={toggleColorMode} variant={'solid'}
-              size={'sm'} colorScheme='green'>
+              size={'sm'} colorScheme={useColorModeValue('green','teal')}>
                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
               </Button>
               

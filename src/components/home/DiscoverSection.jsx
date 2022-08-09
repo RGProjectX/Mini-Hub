@@ -57,7 +57,7 @@ const DiscoverSection = () => {
   return (
     <>
     <Box align='center' justify='center'>
-    <Heading color={useColorModeValue('green.500','green.400')}>Discover projects</Heading>
+    <Heading color={useColorModeValue('green.500','teal.200')}>Discover projects</Heading>
     <Text color={useColorModeValue('gray.600','gray.400')}>developed by students of various universities.</Text>
   </Box>
  <SimpleGrid columns={[1,2,2,4]} spacingX='10' >

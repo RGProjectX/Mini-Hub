@@ -13,7 +13,7 @@ import {
     Heading,
     Text,
     useColorModeValue,
-    Link,
+    Link
   } from '@chakra-ui/react';
 import { useState } from 'react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
@@ -28,7 +28,7 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
         bg={useColorModeValue('gray.50', 'gray.800')}>
         <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
           <Stack align={'center'}>
-            <Heading fontSize={'4xl'} textAlign={'center'} color={useColorModeValue('green.500','green.300')}>
+            <Heading fontSize={'4xl'} textAlign={'center'} color={useColorModeValue('green.500','teal.200')}>
               Sign up
             </Heading>
             <Text fontSize={'lg'} color={'gray.600'}>
@@ -83,11 +83,8 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
                 <Button
                   loadingText="Submitting"
                   size="lg"
-                  bg={'green.400'}
-                  color={'white'}
-                  _hover={{
-                    bg: 'green.500',
-                  }}>
+                  colorScheme={useColorModeValue('green','teal')}
+                  >
                   Sign up
                 </Button>
               </Stack>

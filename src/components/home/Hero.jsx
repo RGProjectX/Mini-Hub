@@ -2,6 +2,8 @@ import { Text, HStack, Heading, Box, Flex,Image, useColorModeValue, Stack, Butto
 import React from 'react'
 import TypeAnimation from 'react-type-animation';
 import MiniIcon from '../icon/MiniIcon';
+import SignInModal from '../navbar/SignInModal';
+import SignUpModal from '../navbar/SignUpModal';
 import InfoCard from './InfoCard';
 const Hero = () => {
   return (
@@ -10,7 +12,7 @@ const Hero = () => {
     <Stack direction={['column','column','row','row']}>
     <Stack align='center' >
     <MiniIcon/>  
-    <Heading color='green.400'>MiniHub</Heading>
+    <Heading color={useColorModeValue('green.400','teal.200')}>MiniHub</Heading>
     <HStack>
         <Text color={useColorModeValue('gray.600','gray.400')}>A place developed to</Text>
         <TypeAnimation
@@ -31,9 +33,9 @@ const Hero = () => {
     </Stack>
     <Box mt='5' align='center'>
     <Text align='center'>Start sharing your knowledge with the world now. </Text>
-    <ButtonGroup mt='5' variant='outline' spacing='10' colorScheme='green'>
-    <Button>Sign In</Button>
-    <Button>Sign Up</Button>
+    <ButtonGroup mt='5' variant='solid' spacing='10' colorScheme={useColorModeValue('green','teal')}>
+    <Button><SignInModal/></Button>
+    <Button><SignUpModal/></Button>
     </ButtonGroup>
     </Box>
     </Flex>
