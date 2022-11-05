@@ -32,7 +32,7 @@ import {
           <Heading color={useColorModeValue('green.500','teal.200')} fontSize={'2xl'} fontFamily={'body'}>
             {props.name}
           </Heading>
-          <Text fontWeight={600} color={'gray.500'} mb={4}>
+          <Text fontWeight='light' color={'gray.500'} mb={4}>
            {props.author}
           </Text>
           <Text noOfLines={2}
@@ -60,7 +60,6 @@ import {
             <Button 
               flex={1}
               fontSize={'lg'}
-              rounded={'full'}
               colorScheme={useColorModeValue('green','teal')}
               >
               Check Out

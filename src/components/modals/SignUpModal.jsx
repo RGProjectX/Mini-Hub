@@ -30,9 +30,9 @@ const SignUp = () => {
   return  <Flex
   align={'center'}
   justify={'center'}>
-  <Stack spacing={8} mx={'auto'} maxW={'lg'} py={4} px={4}>
+  <Stack spacing={8} mx={'auto'} maxW={'lg'} py={2} px={4}>
     <Stack align={'center'}>
-      <Heading fontSize={'4xl'} textAlign={'center'} color={useColorModeValue('green.500','teal.200')}>
+      <Heading fontSize={['xl','2xl','3xl','4xl']} textAlign={'center'} color={useColorModeValue('green.500','teal.200')}>
         Sign up
       </Heading>
       <Text fontSize={'lg'} color={'gray.500'} textAlign='center'>
@@ -58,7 +58,7 @@ const SignUp = () => {
         </HStack>
         <FormControl id="email" isRequired>
           <FormLabel>Email Address</FormLabel>
-          <Input type="email"  />
+          <Input type="email" />
           <FormHelperText>We'll never share your email.</FormHelperText>
         </FormControl>
         <FormControl id="college" isRequired>

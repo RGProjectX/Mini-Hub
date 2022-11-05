@@ -16,6 +16,7 @@ import {
   Tooltip
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon,AddIcon } from '@chakra-ui/icons';
+import { NavLink } from 'react-router-dom'
 import MiniIcon from '../icon/MiniIcon';
 
 
@@ -25,7 +26,7 @@ export default function Nav() {
       <Box position="fixed"
       zIndex="dropdown" width='100%' top='0' bg={useColorModeValue('gray.200', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <Box><Link href='/'><MiniIcon/></Link></Box>
+          <Box><NavLink to='/'><MiniIcon/></NavLink></Box>
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
             <Tooltip hasArrow placement='bottom' label='Upload Project'> 

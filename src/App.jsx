@@ -5,6 +5,8 @@ import {Routes,Route} from 'react-router-dom'
 import Home from './components/home/Home'
 import Nav from './components/navbar/Navbar'
 import ViewAll from './components/view/ViewAll'
+import BrowseProject from './components/browseProject/BrowseProject'
+
 function App() {
   
   return (
@@ -14,7 +16,8 @@ function App() {
       <Route path='/' element={<Home/>}/>
       <Route path='/signin' element={<SignIn/>}/>
       <Route path='/signup' element={<SignUp/>}/>
-      <Route path='/view' element={<ViewAll/>}/>
+      <Route path='/viewall' element={<ViewAll/>}/>
+      <Route path='/browse/:projectID' element={<BrowseProject/>}/>
     </Routes>
     </>
   )

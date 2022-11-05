@@ -1,9 +1,10 @@
 import React from 'react'
-import {Box,Input,InputGroup,InputRightElement,Stack} from '@chakra-ui/react'
+import {Box,Input,InputGroup,InputRightElement,Stack,useColorModeValue} from '@chakra-ui/react'
 import { SearchIcon } from '@chakra-ui/icons'
 import ViewCard from './VIewCard'
 const ViewAll = () => {
   const projectArr = [{
+    projectID:1,
     name: 'MiniHub',
     author: 'Rohit',
     description: 'A project sharing website.',
@@ -14,6 +15,7 @@ const ViewAll = () => {
     ]
 },
 {
+    projectID:2,
     name: 'URL Shortener',
     author: 'Ankit',
     description: 'A project developed for URL shortening.',
@@ -27,6 +29,7 @@ const ViewAll = () => {
     ]
 },
 {
+  projectID:3,
   name: 'Password Generator',
   author: 'Sumit',
   description: 'A project developed for generating password randomly.',
@@ -39,6 +42,7 @@ const ViewAll = () => {
   ]
 },
 {
+  projectID:4,
   name: 'BMI Calculator',
   author: 'Raj',
   description: 'A calculator that helps you calculate your BMI.',
@@ -59,11 +63,11 @@ const ViewAll = () => {
     <Box mt='20' mb='4'>
       <InputGroup>
       <Input placeholder='Enter project name' />
-      <InputRightElement children={<SearchIcon color='green.500' />} />
+      <InputRightElement children={<SearchIcon color={useColorModeValue('green.500','teal.200')} />} />
       </InputGroup>
     </Box>
     {projectArr.map((items)=>
-      <ViewCard namexauthor={items.author} description={items.description} language={items.language}/>
+      <ViewCard key={items.projectID} id={items.projectID} name={items.name} author={items.author} description={items.description} language={items.language}/>
     )}
     </Stack>
   )
