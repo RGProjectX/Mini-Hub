@@ -13,13 +13,45 @@ import {
     Heading,
     Text,
     useColorModeValue,
-    Link
+    Link,
+    
   } from '@chakra-ui/react';
+import axios from 'react' ;
 import { useState } from 'react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
   
   export default function SignUp() {
+    //new 1
+    const[user, setuser] = useState({
+      firstname: "",
+      lastname:"",
+      email:"",
+      collegename:"",
+      password:""
+      
+    })
+
+    const handlechange = e => {
+      const {name,value} = e.target
+      setuser({
+        ...user,
+        [name]:value
+      })
+    }
+
     const [showPassword, setShowPassword] = useState(false);
+// NEw setup 2
+    const Signup = () => {
+      const { firstname,lastname,email,collegename,password} = user
+      if(firstname && lastname && email && collegename && password) {
+        alert("posted")
+        axios.post("http://localhost:9000/Signup", user)
+
+      } else {
+        alert("invalid")
+      }
+      
+    }
   
     return (
       <Flex mt='10'
@@ -45,24 +77,24 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
                 <Box>
                   <FormControl id="firstName" isRequired>
                     <FormLabel>First Name</FormLabel>
-                    <Input type="text" />
+                    <Input type="text"  name="firstName" value={user.firstName} onChange={handleChange} />
                   </FormControl>
                 </Box>
                 <Box>
                   <FormControl id="lastName" isRequired>
                     <FormLabel>Last Name</FormLabel>
-                    <Input type="text" />
+                    <Input type="text" name="lastName" value={user.lastName} onChange={handleChange} />
                   </FormControl>
                 </Box>
               </HStack>
               <FormControl id="email" isRequired>
                 <FormLabel>Email Address</FormLabel>
-                <Input type="email"  />
+                <Input type="email" name="email" value={user.email} onChange={handleChange} />
                 <FormHelperText>We'll never share your email.</FormHelperText>
               </FormControl>
               <FormControl id="college" isRequired>
                 <FormLabel>College Name</FormLabel>
-                <Input type="text" />
+                <Input type="text" name="college" value={user.college} onChange={handleChange} />
               </FormControl>
               <FormControl id="password" isRequired>
                 <FormLabel>Password</FormLabel>
@@ -84,8 +116,7 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
                   loadingText="Submitting"
                   size="lg"
                   colorScheme={useColorModeValue('green','teal')}
-                  >
-                  Sign up
+                  >Sign up
                 </Button>
               </Stack>
               <Stack pt={6}>
@@ -99,3 +130,4 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
       </Flex>
     );
   }
+
