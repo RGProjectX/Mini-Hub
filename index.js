@@ -28,15 +28,23 @@ app.use(cors())
 
 //model create
 
-const User = new mongoose.model("User,userSchema")
+// const User = new mongoose.model("User,userSchema")
 
 //Routes
-  app.post("/signin", (req, res)=> {
-    const {firstname, lastname, email,collegename,password} = req.body
-    const user = new User()
-    res.send("My API login")
+app.post("/signin", (req, res)=> {
+  const { email, password} = req.body
+  User.findOne({ email: email}, (err, user) => {
+      if(user){
+          if(password === user.password ) {
+              res.send({message: "Login Successfull", user: user})
+          } else {
+              res.send({ message: "Password didn't match"})
+          }
+      } else {
+          res.send({message: "User not registered"})
+      }
   })
-
+}) 
   app.post("/signup", (req, res)=> {
       const {firstname, lastname, email,collegename,password} = req.body
       User.findOne({email:email},  (err,user) => {
@@ -63,8 +71,8 @@ const User = new mongoose.model("User,userSchema")
 })
   
 
-  app.listen(9000,() => {
-    console.log("BE started at port 9000")
+  app.listen(9002,() => {
+    console.log("BE started at port 9002")
   })
 
   
