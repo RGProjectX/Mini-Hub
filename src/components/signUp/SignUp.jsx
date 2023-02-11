@@ -13,8 +13,10 @@ import {
     Heading,
     Text,
     useColorModeValue,
-    Link
+    Link,
+    
   } from '@chakra-ui/react';
+import axios from 'axios' ;
 import { useState } from 'react';
 import { register } from '../../api';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
@@ -43,6 +45,18 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
     };
 
     const [showPassword, setShowPassword] = useState(false);
+// NEw setup 2
+    const Signup = () => {
+      const { firstname,lastname,email,collegename,password} = user
+      if(firstname && lastname && email && collegename && password) {
+        alert("posted")
+        axios.post("http://localhost:9000/signup", user)
+
+      } else {
+        alert("invalid")
+      }
+      
+    }
   
     return (
       <Flex mt='10'
@@ -66,6 +80,7 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
             <Stack spacing={4}>
               <HStack>
                 <Box>
+                
                   <FormControl id="firstName" isRequired>
                     <FormLabel>First Name</FormLabel>
                     <Input  id="fname"
@@ -122,8 +137,7 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
                   onClick={handleSubmit}
                   size="lg"
                   colorScheme={useColorModeValue('green','teal')}
-                  >
-                  Sign up
+                  >Sign up
                 </Button>
               </Stack>
               <Stack pt={6}>
@@ -136,4 +150,6 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
         </Stack>
       </Flex>
     );
-  }
+    }
+ 
+
