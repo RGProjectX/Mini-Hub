@@ -16,9 +16,32 @@ import {
     Link
   } from '@chakra-ui/react';
 import { useState } from 'react';
+import { register } from '../../api';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
   
   export default function SignUp() {
+    // const [name, setName] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [college, setCollege] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        console.log(firstName, lastName, email, college, password);
+        try {
+          const response = await register(firstName, lastName, email, college, password);
+          if (response.status === 200) {
+            console.log('Success');
+          }
+          console.log('Response : ' + response.data);
+          // console.log(firstName, lastName, email, college, password);
+        } catch (error) {
+          console.error(error.response.data);
+        }
+    };
+
     const [showPassword, setShowPassword] = useState(false);
   
     return (
@@ -45,29 +68,43 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
                 <Box>
                   <FormControl id="firstName" isRequired>
                     <FormLabel>First Name</FormLabel>
-                    <Input type="text" />
+                    <Input  id="fname"
+                    type="text"
+                    value={firstName}
+                    onChange={(event) => setFirstName(event.target.value)} />
                   </FormControl>
                 </Box>
                 <Box>
                   <FormControl id="lastName" isRequired>
                     <FormLabel>Last Name</FormLabel>
-                    <Input type="text" />
+                    <Input  id="lname"
+                    type="text"
+                    value={lastName}
+                    onChange={(event) => setLastName(event.target.value)} />
                   </FormControl>
                 </Box>
               </HStack>
               <FormControl id="email" isRequired>
                 <FormLabel>Email Address</FormLabel>
-                <Input type="email"  />
+                <Input  id="email"
+                    type="email"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)} />
                 <FormHelperText>We'll never share your email.</FormHelperText>
               </FormControl>
               <FormControl id="college" isRequired>
                 <FormLabel>College Name</FormLabel>
-                <Input type="text" />
+                <Input  id="college"
+                    type="text"
+                    value={college}
+                    onChange={(event) => setCollege(event.target.value)} />
               </FormControl>
               <FormControl id="password" isRequired>
                 <FormLabel>Password</FormLabel>
                 <InputGroup>
-                  <Input type={showPassword ? 'text' : 'password'} />
+                  <Input type={showPassword ? 'text' : 'password'}  id="password"
+                    value={password}
+                    onChange={(event) => setPassword(event.target.value)} />
                   <InputRightElement h={'full'}>
                     <Button
                       variant={'ghost'}
@@ -82,6 +119,7 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
               <Stack spacing={10} pt={2}>
                 <Button
                   loadingText="Submitting"
+                  onClick={handleSubmit}
                   size="lg"
                   colorScheme={useColorModeValue('green','teal')}
                   >
