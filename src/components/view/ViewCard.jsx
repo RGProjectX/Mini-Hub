@@ -6,7 +6,7 @@ const ViewCard = (props) => {
     <NavLink to={'/browse/'+props.name}>
     <Box p='4' m='2' border='1px' borderRadius='xl' borderColor={useColorModeValue('gray.300','whiteAlpha.400')}>
       <HStack>
-        <Avatar  size='md' mr='2' src={'https://avatars.dicebear.com/api/adventurer/oh.svg'}></Avatar>
+        <Avatar  size='md' mr='2' src={`https://avatars.dicebear.com/api/adventurer/${Math.random().toString(36).substring(2,7)}.svg`}></Avatar>
         <Flex direction='column'>
           <Text fontSize={['16','18','22','24']} fontWeight='bold' color={useColorModeValue('green.500','teal.200')} >{props.name}</Text>
           <Text fontSize={['12','14','16','16']} color='gray.400' fontWeight='light'>{props.author}</Text>

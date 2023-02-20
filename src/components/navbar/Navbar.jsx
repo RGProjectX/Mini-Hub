@@ -18,10 +18,13 @@ import {
 import { MoonIcon, SunIcon,AddIcon } from '@chakra-ui/icons';
 import { NavLink } from 'react-router-dom'
 import MiniIcon from '../icon/MiniIcon';
-
-
 export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
+  
+  const [firstName, lastName, email, college, isAuthenticated] = [localStorage.getItem("firstName"), localStorage.getItem("lastName"), localStorage.getItem("email"), localStorage.getItem("college"), localStorage.getItem("isAuthenticated")];
+  
+  const profile_pic = `https://avatars.dicebear.com/api/adventurer/${Math.random().toString(36).substring(2,7)}.svg`
+  
   return (
       <Box position="fixed"
       zIndex="dropdown" width='100%' top='0' bg={useColorModeValue('gray.200', 'gray.900')} px={4}>
@@ -29,16 +32,19 @@ export default function Nav() {
           <Box><NavLink to='/'><MiniIcon/></NavLink></Box>
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
-            <Tooltip hasArrow placement='bottom' label='Upload Project'> 
+              {isAuthenticated ? <Tooltip hasArrow placement='bottom' label='Upload Project'> 
+              <NavLink to='/upload'>
             <Button
               variant={'solid'}
               size={'sm'} colorScheme={useColorModeValue('green','teal')}><AddIcon/></Button>
-              </Tooltip> 
+              </NavLink>
+              </Tooltip> : null}
+            
               <Button onClick={toggleColorMode} variant={'solid'}
               size={'sm'} colorScheme={useColorModeValue('green','teal')}>
                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
               </Button>
-              
+              {isAuthenticated ? 
               <Menu >
                 <MenuButton
                   as={Button}
@@ -48,7 +54,7 @@ export default function Nav() {
                   minW={0}>
                   <Avatar
                     size='sm'
-                    src={'https://avatars.dicebear.com/api/adventurer/oh.svg'}
+                    src={profile_pic}
                   />
                 </MenuButton>
                 <MenuList alignItems={'center'} >
@@ -56,20 +62,27 @@ export default function Nav() {
                   <Center>
                     <Avatar
                       size={'2xl'}
-                      src={'https://avatars.dicebear.com/api/adventurer/oh.svg'}
+                      src={profile_pic}
                     />
                   </Center>
                   <br />
                   <Center>
-                    <p>Rohit Ghorui</p>
+                    <p>{isAuthenticated ? `${firstName} ${lastName}`  : 'Not Logged In'}</p>
+                  </Center>
+                  <Center>
+                    {isAuthenticated ? <p>{email}</p> : null }
                   </Center>
                   <br />
-                  <MenuDivider />
-                  <MenuItem><Link href='/signin'>Sign In</Link></MenuItem>
-                  <MenuItem><Link href='/signup'>Sign Up</Link></MenuItem>
-                  <MenuItem><Link href='/view'>View All</Link></MenuItem>
+                  {isAuthenticated ?  <><MenuDivider />
+                  <MenuItem><NavLink to='/signin'>Account</NavLink></MenuItem>
+                  <MenuItem><NavLink to='/upload'>Upload Projects</NavLink></MenuItem>
+                  <MenuItem><NavLink to='/' onClick={() => {
+                    localStorage.clear();
+                    window.location.reload();
+                  }}>Log Out</NavLink></MenuItem> </> : null
+                }
                 </MenuList>
-              </Menu>
+              </Menu> : null}
             </Stack>
           </Flex>
         </Flex>

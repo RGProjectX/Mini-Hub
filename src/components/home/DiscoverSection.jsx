@@ -64,7 +64,7 @@ const DiscoverSection = () => {
     <SimpleGrid columns={[1,2,2,4]} spacingX='10' >
       {
         projectArr.map((items)=>
-          <Card name={items.name} author={items.author} description={items.description} language={items.language}/>
+          <Card key={items.name} name={items.name} author={items.author} description={items.description} language={items.language}/>
         )
       }
     </SimpleGrid>

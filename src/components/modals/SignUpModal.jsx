@@ -20,6 +20,7 @@ import {
     Text,
     useDisclosure,
     useColorModeValue,
+    useToast
   } from '@chakra-ui/react'
 import { register } from '../../api';
 import { useState } from 'react';
@@ -33,9 +34,9 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [college, setCollege] = useState('');
   const [password, setPassword] = useState('');
-  const [signUpError, setsignUpError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [registered, setRegistered] = useState(false);
+
+  const toast = useToast();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -44,20 +45,34 @@ const SignUp = () => {
       setIsLoading(true);
       const response = await register(firstName, lastName, email, college, password);
       if (response['message'] === 'User created successfully') {
-        setRegistered(true);
+        console.log('Response : ' + response['message']);
+        toast({
+          title: "Success",
+          description: response.message,
+          status: "success",
+          duration: 9000,
+          isClosable: true,
+        });
       }
-      console.log('Response : ' + response['message']);
-      
-      
-      // console.log(firstName, lastName, email, college, password);
     } catch (error) {
-        // catch error message
-        try {
-          setsignUpError(error.response.data.detail);
-        }
-        catch {
-          setsignUpError('Something went wrong, please try again later.');
-        }
+      try{
+        toast({
+          title: "Error",
+          description: error.response.data.detail,
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+      }
+      catch{
+        toast({
+          title: "Error",
+          description: error.message,
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+      }
     }
     setIsLoading(false);
 };
@@ -65,7 +80,7 @@ const SignUp = () => {
   return  <Flex
   align={'center'}
   justify={'center'}>
-    {!registered ?   <Stack spacing={8} mx={'auto'} maxW={'lg'} py={2} px={4}>
+    {<Stack spacing={8} mx={'auto'} maxW={'lg'} py={2} px={4}>
     <Stack align={'center'}>
       <Heading fontSize={['xl','2xl','3xl','4xl']} textAlign={'center'} color={useColorModeValue('green.500','teal.200')}>
         Sign up
@@ -94,9 +109,7 @@ const SignUp = () => {
         <FormControl id="email" isRequired>
           <FormLabel>Email Address</FormLabel>
           <Input id='email' type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
-          {/* if setsignUpError change it to red color */}
-          <FormHelperText color={signUpError === '' ?  'gray.500' : 'red.500'}>{signUpError === '' ? 'We\'ll never share your email.' : signUpError }</FormHelperText>
-          {/* <FormHelperText>We'll never share your email.</FormHelperText> */}
+          <FormHelperText>We'll never share your email.</FormHelperText>
         </FormControl>
         <FormControl id="college" isRequired>
           <FormLabel>College Name</FormLabel>
@@ -135,15 +148,6 @@ const SignUp = () => {
         </Stack>
       </Stack>
     </Box>
-  </Stack> : <Stack spacing={8} mx={'auto'} maxW={'lg'} py={2} px={4}>
-  <Stack align={'center'}>
-    <Heading fontSize={['xl','2xl','3xl','4xl']} textAlign={'center'} color={useColorModeValue('green.500','teal.200')}>
-      User Registered Successfully.
-    </Heading>
-    <Text fontSize={'lg'} color={'gray.500'} textAlign='center'>
-      Please proceed to login into your account.
-    </Text>
-  </Stack>
   </Stack>
 }
 

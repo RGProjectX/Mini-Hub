@@ -6,6 +6,7 @@ import Home from './components/home/Home'
 import Nav from './components/navbar/Navbar'
 import ViewAll from './components/view/ViewAll'
 import BrowseProject from './components/browseProject/BrowseProject'
+import UploadProject from './components/uploadProject/upload'
 
 function App() {
   
@@ -17,6 +18,7 @@ function App() {
       <Route path='/signin' element={<SignIn/>}/>
       <Route path='/signup' element={<SignUp/>}/>
       <Route path='/viewall' element={<ViewAll/>}/>
+      <Route path='/upload' element={<UploadProject/>}/>
       <Route path='/browse/:projectID' element={<BrowseProject/>}/>
     </Routes>
     </>

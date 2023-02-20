@@ -6,12 +6,15 @@ import { BrowserRouter } from 'react-router-dom'
 
 import "@fontsource/poppins"
 import customTheme from '../theme'
+import { AuthProvider } from "./api";
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
     <ChakraProvider theme={customTheme}>
-    
-    <App />
+    <AuthProvider>
+      <App />
+    </AuthProvider>
     </ChakraProvider>
     </BrowserRouter>
   </React.StrictMode>
