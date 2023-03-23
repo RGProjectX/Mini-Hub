@@ -7,6 +7,7 @@ import Nav from './components/navbar/Navbar'
 import ViewAll from './components/view/ViewAll'
 import BrowseProject from './components/browseProject/BrowseProject'
 import UploadProject from './components/uploadProject/upload'
+import ProfilePage from './components/profile/ProfilePage'
 
 function App() {
   
@@ -17,8 +18,9 @@ function App() {
       <Route path='/' element={<Home/>}/>
       <Route path='/signin' element={<SignIn/>}/>
       <Route path='/signup' element={<SignUp/>}/>
-      <Route path='/viewall' element={<ViewAll/>}/>
+      <Route path='/explore' element={<ViewAll/>}/>
       <Route path='/upload' element={<UploadProject/>}/>
+      <Route path='/profile' element={<ProfilePage/>}/>
       <Route path='/browse/:projectID' element={<BrowseProject/>}/>
     </Routes>
     </>

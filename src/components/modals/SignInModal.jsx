@@ -71,10 +71,7 @@ const SignIn = () => {
                 isClosable: true,
               });
             });
-      
-            
-            
-            setMessage(response.message);
+    
          
           }
         }

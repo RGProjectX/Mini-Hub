@@ -123,6 +123,7 @@ const UploadProject = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter email name"
+            isReadOnly
           />
         </FormControl>
         <FormControl>

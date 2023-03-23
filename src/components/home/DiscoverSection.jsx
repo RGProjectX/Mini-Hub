@@ -2,59 +2,27 @@ import React from 'react'
 import { Box, Heading, useColorModeValue, SimpleGrid, Stack, Text, Button, Center } from '@chakra-ui/react'
 import Card from '../projectCard/Card'
 import { NavLink } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid';
 
 const DiscoverSection = () => {
-    const projectArr = [{
-        name: 'MiniHub',
-        author: 'Rohit',
-        description: 'A project sharing website.',
-        language:[
-          'Python',
-          'React',
-          'MongoDB'
-        ]
-    },
-    {
-        name: 'URL Shortener',
-        author: 'Ankit',
-        description: 'A project developed for URL shortening.',
-        language:[
-          'Python',
-          'React',
-          'NodeJS',
-          'MongoDB',
-          'FastAPI'
-    
-        ]
-    },
-    {
-      name: 'Password Generator',
-      author: 'Sumit',
-      description: 'A project developed for generating password randomly.',
-      language:[
-        'Python',
-        'React',
-        'MongoDB',
-        'FastAPI'
-    
-      ]
-    },
-    {
-      name: 'BMI Calculator',
-      author: 'Raj',
-      description: 'A calculator that helps you calculate your BMI.',
-      language:[
-        'Python',
-        'React',
-        'MongoDB',
-        'FastAPI',
-        'Python',
-        'React',
-        'MongoDB',
-        'FastAPI',
-    
-      ]
-    }]
+ 
+    const [projects, setProjects] = React.useState([])
+
+    // update projects from backend
+    React.useEffect(() => {
+      fetch('http://localhost:8000/projects')
+        .then(response => response.json())
+        .then(data => {
+          // Add a unique id to each project
+          const projectsWithId = data.map(project => ({ ...project, id: uuidv4() }));
+          setProjects(projectsWithId);
+        })
+        .catch(error => {
+          console.error('Error fetching projects:', error);
+        });
+    }, []);
+
+                
   return (
     <>
     <Box align='center' justify='center'>
@@ -63,13 +31,13 @@ const DiscoverSection = () => {
       </Box>
     <SimpleGrid columns={[1,2,2,4]} spacingX='10' >
       {
-        projectArr.map((items)=>
-          <Card key={items.name} name={items.name} author={items.author} description={items.description} language={items.language}/>
+        projects.slice(-4).map((items)=>
+          <Card key={items.id} name={items.name} author={items.author} description={items.description} language={items.languages}/>
         )
       }
     </SimpleGrid>
     <Center>
-    <NavLink to='/viewall'>
+    <NavLink to='/explore'>
         <Button colorScheme={useColorModeValue('green','teal')}>
           View All
         </Button>

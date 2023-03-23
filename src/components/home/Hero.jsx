@@ -1,11 +1,15 @@
 import { Text, HStack, Heading, Box, Flex,Image, useColorModeValue, Stack, Button, ButtonGroup } from '@chakra-ui/react';
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 import TypeAnimation from 'react-type-animation';
 import MiniIcon from '../icon/MiniIcon';
 import SignInModal from '../modals/SignInModal';
 import SignUpModal from '../modals/SignUpModal';
 import InfoCard from './InfoCard';
 const Hero = () => {
+
+  const isAuthenticated = localStorage.getItem('isAuthenticated');
+
   return (
     <>
     <Flex height='100vh' direction='column' alignItems='center' justifyContent='center'>
@@ -34,8 +38,13 @@ const Hero = () => {
     <Box mt='5' align='center'>
     <Text align='center'>Start sharing your knowledge with the world now. </Text>
     <ButtonGroup mt='5' variant='solid' spacing='10' colorScheme={useColorModeValue('green','teal')}>
+
+    {isAuthenticated ?  <NavLink to='/explore'><Button>Explore</Button></NavLink> : 
+    <>
     <Button><SignInModal/></Button>
     <Button><SignUpModal/></Button>
+    </>
+    }
     </ButtonGroup>
     </Box>
     </Flex>

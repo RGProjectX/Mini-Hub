@@ -54,7 +54,7 @@ export default function Nav() {
                   minW={0}>
                   <Avatar
                     size='sm'
-                    src={profile_pic}
+                    name={`${firstName} ${lastName}`}
                   />
                 </MenuButton>
                 <MenuList alignItems={'center'} >
@@ -62,7 +62,7 @@ export default function Nav() {
                   <Center>
                     <Avatar
                       size={'2xl'}
-                      src={profile_pic}
+                      name={`${firstName} ${lastName}`}
                     />
                   </Center>
                   <br />
@@ -74,7 +74,7 @@ export default function Nav() {
                   </Center>
                   <br />
                   {isAuthenticated ?  <><MenuDivider />
-                  <MenuItem><NavLink to='/signin'>Account</NavLink></MenuItem>
+                  <MenuItem><NavLink to='/profile'>Account</NavLink></MenuItem>
                   <MenuItem><NavLink to='/upload'>Upload Projects</NavLink></MenuItem>
                   <MenuItem><NavLink to='/' onClick={() => {
                     localStorage.clear();

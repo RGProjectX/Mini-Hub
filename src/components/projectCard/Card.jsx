@@ -12,6 +12,7 @@ import {
     Wrap,
     Flex,
   } from '@chakra-ui/react';
+import { NavLink } from 'react-router-dom';
   
   export default function Card(props) {
 
@@ -62,7 +63,7 @@ import {
               fontSize={'lg'}
               colorScheme={useColorModeValue('green','teal')}
               >
-              Check Out
+              <NavLink to={`/browse/${props.name}`}>Check Out</NavLink>
             </Button>
           </Stack>
         </Flex>
