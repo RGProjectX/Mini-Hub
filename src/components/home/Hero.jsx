@@ -33,7 +33,7 @@ const Hero = () => {
         <InfoCard number='10' name='Colleges'/>
     </Flex>
     </Stack>
-    <Image m={['2','2','6','6']} width='300px' height='200px' src={'src/assets/share.svg'}></Image>
+    <Image m={['2','2','6','6']} width='300px' height='200px' src={'https://raw.githubusercontent.com/RGProjectX/Mini-Hub/e39daaab728aa5863024e7217ab58fb5e123e5b8/src/assets/share.svg'}></Image>
     </Stack>
     <Box mt='5' align='center'>
     <Text align='center'>Start sharing your knowledge with the world now. </Text>
