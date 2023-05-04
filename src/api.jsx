@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { createContext, useState, useContext, useEffect } from "react";
 
 const register = async (firstName, lastName, email, college, password) => {
-    const response = await axios.post('http://127.0.0.1:8000/register', {
+    const response = await axios.post('https://minihub-py.herokuapp.com/register', {
         firstName,
         lastName,
         college,
@@ -35,12 +35,12 @@ const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post("http://127.0.0.1:8000/login", {
+      const response = await axios.post("https://minihub-py.herokuapp.com/login", {
         email,
         password,
       });
       if (response.data.message === "Login successful") {
-        const user =  await axios.get(`http://localhost:8000/user/${email}`);
+        const user =  await axios.get(`https://minihub-py.herokuapp.com/user/${email}`);
         const user_data = JSON.stringify(user.data)
         console.log("Response API : " + response.data.message);
         console.log("User API : " + user_data);

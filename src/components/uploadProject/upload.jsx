@@ -20,6 +20,7 @@ import {
 } from '@chakra-ui/react';
 import axios from 'axios';
 
+
 const UploadProject = () => {
   const init_email = localStorage.getItem('isAuthenticated') ? localStorage.getItem('email') : ''
   const [name, setName] = useState('');
@@ -73,7 +74,7 @@ const UploadProject = () => {
       return;
     }
 
-    axios.post('http://localhost:8000/upload', {
+    axios.post('https://minihub-py.herokuapp.com/upload', {
       name,email,description,languages,url}).then(response => {
         console.log(response);
         if (response.data.message === "Project uploaded successfully") {

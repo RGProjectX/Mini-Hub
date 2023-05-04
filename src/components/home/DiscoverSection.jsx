@@ -10,7 +10,7 @@ const DiscoverSection = () => {
 
     // update projects from backend
     React.useEffect(() => {
-      fetch('http://localhost:8000/projects')
+      fetch('https://minihub-py.herokuapp.com/projects')
         .then(response => response.json())
         .then(data => {
           // Add a unique id to each project
@@ -35,6 +35,8 @@ const DiscoverSection = () => {
           <Card key={items.id} name={items.name} author={items.author} description={items.description} language={items.languages}/>
         )
       }
+      {/* <Card key='1223' name='HIe' author='jeie' description='hello' language={['python']}/> */}
+        
     </SimpleGrid>
     <Center>
     <NavLink to='/explore'>

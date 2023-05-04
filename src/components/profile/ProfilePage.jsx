@@ -53,7 +53,7 @@ const ProfilePage = () => {
     localStorage.setItem('isAuthenticated', true);
     console.log('updated');
 
-    fetch('http://127.0.0.1:8000/users/update', {
+    fetch('https://minihub-py.herokuapp.com/users/update', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

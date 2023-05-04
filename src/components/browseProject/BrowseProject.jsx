@@ -38,11 +38,11 @@ const BrowseProject = () => {
   // urldecode projectID
   projectID = decodeURIComponent(projectID)
   useEffect(() => {
-    axios.get(`http://localhost:8000/project/${projectID}`)
+    axios.get(`https://minihub-py.herokuapp.com/project/${projectID}`)
       .then(res => {
         setProject(res.data)
         console.log(res.data)
-        axios.get(`http://localhost:8000/user/${res.data.email}`)
+        axios.get(`https://minihub-py.herokuapp.com/user/${res.data.email}`)
           .then(res => {
             setDev(res.data)
             console.log('dev', res.data)

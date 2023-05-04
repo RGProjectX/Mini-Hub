@@ -38,14 +38,14 @@ const SignIn = () => {
     try {
       setIsLoading(true);
 
-      axios.post('http://localhost:8000/login', {
+      axios.post('https://minihub-py.herokuapp.com/login', {
         email,
         password
         })
         .then(response => {
           console.log(response);
           if (response.data.message === "Login successful") {
-            axios.get(`http://localhost:8000/user/${email}`).then(response => {
+            axios.get(`https://minihub-py.herokuapp.com/user/${email}`).then(response => {
               const user = response.data;
               localStorage.setItem("firstName", user.firstName);
               localStorage.setItem("lastName", user.lastName);
