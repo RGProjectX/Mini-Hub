@@ -34,7 +34,7 @@ const Hero = () => {
     </Flex>
     </Stack>
     {/* <Image m={['2','2','6','6']} width='300px' height='200px' src="./src/assets/share.svg" ></Image> */}
-    <Image m={['2','2','6','6']} width='300px' height='200px' src="https://github.com/RGProjectX/Mini-Hub/blob/master/src/assets/share.svg" ></Image>
+    <Image m={['2','2','6','6']} width='300px' height='200px' src="https://github.com/RGProjectX/Mini-Hub/raw/master/src/assets/share.svg" ></Image>
     </Stack>
     <Box mt='5' align='center'>
     <Text align='center'>Start sharing your knowledge with the world now. </Text>
